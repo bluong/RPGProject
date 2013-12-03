@@ -30,6 +30,10 @@ public class BattlingUnit extends Unit implements Comparable<BattlingUnit>{
     public int getPriority() {
         return priority;
     }
+    
+    public Unit getBeforeBattleUnit() {
+    	return beforeBattleUnit;
+    }
 
     public void performAction(Action action) {
     }

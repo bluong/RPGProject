@@ -3,7 +3,6 @@ package com.nyte.battle;
 import com.nyte.core.Party;
 import com.nyte.core.Unit;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -35,5 +34,9 @@ public class BattlingParty implements Iterable<BattlingUnit>{
     @Override
     public Iterator<BattlingUnit> iterator() {
         return units.iterator();
+    }
+    
+    public Party getBeforeBattleParty() {
+    	return beforeBattleParty;
     }
 }

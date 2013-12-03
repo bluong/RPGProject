@@ -44,4 +44,16 @@ public class Action {
     public Action createAbilityAction(BattlingUnit target, Ability ability) {
         return new Action(Type.ABILITY, target, ability);
     }
+    
+    public Type getType() {
+    	return type;
+    }
+    
+    public Ability getAbility() {
+    	return ability;
+    }
+    
+    public BattlingUnit getTarget() {
+    	return target;
+    }
 }

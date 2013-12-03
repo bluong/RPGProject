@@ -23,4 +23,12 @@ public class Unit {
     public int getCurrentAttr(Attributes.Stat attr) {
         return currentAttributes.getStat(attr);
     }
+    
+    public Attributes getSavedAttributes() {
+        return savedAttributes;
+    }
+
+    public int getSavedAttributes(Attributes.Stat attr) {
+        return savedAttributes.getStat(attr);
+    }
 }
