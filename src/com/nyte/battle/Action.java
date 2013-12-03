@@ -27,6 +27,7 @@ public class Action {
         this.type = type;
         this.ability = ability;
         this.target = target;
+        ;
     }
 
     public Action createDefendAction() {
