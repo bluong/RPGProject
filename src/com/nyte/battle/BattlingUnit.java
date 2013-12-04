@@ -11,6 +11,7 @@ public class BattlingUnit extends Unit implements Comparable<BattlingUnit>{
     private int priority;
     private Unit beforeBattleUnit;
     private Commander commander;
+    private Representation representation;
 
     public BattlingUnit(Unit unit) {
         super(unit);
@@ -25,6 +26,10 @@ public class BattlingUnit extends Unit implements Comparable<BattlingUnit>{
 
     public Commander getCommander() {
         return commander;
+    }
+    
+    public Representation getRepresentation() {
+    	return representation;
     }
 
     public int getPriority() {
