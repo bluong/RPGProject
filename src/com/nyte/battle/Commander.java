@@ -5,5 +5,5 @@ package com.nyte.battle;
  */
 public interface Commander {
 
-    public Action getAction();
+    public Action getAction(BattlingUnit unit, Battle battle);
 }
