@@ -12,7 +12,12 @@ public class Action {
     private BattlingUnit target;
 
     public enum Type {
-        ATTACK, DEFEND, ABILITY, WAIT
+        ATTACK, DEFEND, ABILITY, WAIT;
+        
+        public static final String ATTACK_STRING = "Attack";
+        public static final String DEFEND_STRING = "Defend";
+        public static final String ABILITY_STRING = "Ability";
+        public static final String WAIT_STRING = "Wait";
     }
 
     private Action(Type type) {
@@ -29,19 +34,19 @@ public class Action {
         this.target = target;
     }
 
-    public Action createDefendAction() {
+    public static Action createDefendAction() {
         return new Action(Type.DEFEND);
     }
 
-    public Action createWaitAction() {
+    public static Action createWaitAction() {
         return new Action(Type.WAIT);
     }
 
-    public Action createAttackAction(BattlingUnit target) {
+    public static Action createAttackAction(BattlingUnit target) {
         return new Action(Type.ATTACK, target);
     }
 
-    public Action createAbilityAction(BattlingUnit target, Ability ability) {
+    public static Action createAbilityAction(BattlingUnit target, Ability ability) {
         return new Action(Type.ABILITY, target, ability);
     }
     
