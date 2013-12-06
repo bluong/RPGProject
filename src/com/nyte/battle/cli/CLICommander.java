@@ -1,5 +1,7 @@
 package com.nyte.battle.cli;
 
+import java.util.Scanner;
+
 import com.nyte.battle.Action;
 import com.nyte.battle.Battle;
 import com.nyte.battle.BattlingUnit;
@@ -9,8 +11,21 @@ public class CLICommander implements Commander {
 
 	@Override
 	public Action getAction(BattlingUnit unit, Battle battle) {
-		// TODO Auto-generated method stub
-		return null;
+		Scanner scanner = new Scanner(System.in);
+		while (true){
+			switch (scanner.next()) {
+			case Action.Type.ATTACK_STRING:
+				// TODO: Get the target and return an attack action
+			case Action.Type.DEFEND_STRING:
+				scanner.close();
+				return Action.createDefendAction();
+			case Action.Type.ABILITY_STRING:
+				// TODO: Get the ability, get the target, return ability action
+			case Action.Type.WAIT_STRING:
+				scanner.close();
+				return Action.createWaitAction();
+			}
+		}
 	}
 
 }
