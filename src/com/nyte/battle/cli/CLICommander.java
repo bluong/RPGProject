@@ -15,7 +15,7 @@ public class CLICommander implements Commander {
 		while (true){
 			switch (scanner.next()) {
 			case Action.Type.ATTACK_STRING:
-				// TODO: Get the target and return an attack action
+				processAttack(unit, battle, scanner);
 			case Action.Type.DEFEND_STRING:
 				scanner.close();
 				return Action.createDefendAction();
@@ -27,5 +27,12 @@ public class CLICommander implements Commander {
 			}
 		}
 	}
+
+	private void processAttack(BattlingUnit unit, Battle battle, Scanner scanner) {
+		for (BattlingUnit opponent : battle.getOpposingParty(unit)) {
+			System.out.println(opponent);
+		}
+		String target = scanner.next();
+    }
 
 }
