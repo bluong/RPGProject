@@ -11,6 +11,7 @@ public class CLICommander implements Commander {
 
 	@Override
 	public Action getAction(BattlingUnit unit, Battle battle) {
+		System.out.println("Choose an action");
 		Scanner scanner = new Scanner(System.in);
 		while (true){
 			switch (scanner.next()) {
@@ -29,6 +30,7 @@ public class CLICommander implements Commander {
 	}
 
 	private void processAttack(BattlingUnit unit, Battle battle, Scanner scanner) {
+		System.out.println("Here are available targets");
 		for (BattlingUnit opponent : battle.getOpposingParty(unit)) {
 			System.out.println(opponent);
 		}
