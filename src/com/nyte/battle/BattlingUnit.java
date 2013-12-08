@@ -12,11 +12,20 @@ public class BattlingUnit extends Unit implements Comparable<BattlingUnit>{
     private Unit beforeBattleUnit;
     private Commander commander;
     private Representation representation;
+    private BattlingParty battlingParty;
 
     public BattlingUnit(Unit unit) {
         super(unit);
         beforeBattleUnit = unit;
         priority = unit.getCurrentAttr(Attributes.Stat.DEXTERITY);
+    }
+    
+    void setBattlingParty(BattlingParty bp) {
+    	battlingParty = bp;
+    }
+    
+    public BattlingParty getBattlingParty() {
+    	return battlingParty;
     }
 
     @Override

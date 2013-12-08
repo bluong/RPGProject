@@ -18,7 +18,9 @@ public class BattlingParty implements Iterable<BattlingUnit>{
         super();
         beforeBattleParty = party;
         for (Unit unit : party) {
-            units.add(new BattlingUnit(unit));
+        	BattlingUnit newUnit = new BattlingUnit(unit);
+            units.add(newUnit);
+            newUnit.setBattlingParty(this);
         }
     }
 

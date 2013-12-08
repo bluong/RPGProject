@@ -7,9 +7,18 @@ public class Unit {
 
     private Attributes savedAttributes;
     private Attributes currentAttributes;
+    private Party party;
 
     public Unit(Unit original) {
         //TODO: Copy the stats
+    }
+    
+    void setParty(Party p) {
+    	party = p;
+    }
+    
+    public Party getParty() {
+    	return party;
     }
 
     public boolean isUnable() {
