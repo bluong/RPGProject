@@ -38,4 +38,13 @@ public abstract class Battle {
     private boolean isOver() {
         return opponents[0].isUnable() || opponents[1].isUnable();
     }
+    
+    public BattlingParty getOpposingParty(BattlingUnit unit) {
+    	for (BattlingParty party : opponents) {
+    		if (!party.equals(unit.getBattlingParty())) {
+    			return party;
+    		}
+    	}
+    	throw new IllegalStateException();
+    }
 }
