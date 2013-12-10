@@ -6,6 +6,7 @@ import com.nyte.battle.Action;
 import com.nyte.battle.Battle;
 import com.nyte.battle.BattlingUnit;
 import com.nyte.battle.Commander;
+import com.nyte.core.Ability;
 
 public class CLICommander implements Commander {
 
@@ -21,7 +22,7 @@ public class CLICommander implements Commander {
 				scanner.close();
 				return Action.createDefendAction();
 			case Action.Type.ABILITY_STRING:
-				// TODO: Get the ability, get the target, return ability action
+				processAbility(unit, battle, scanner);
 			case Action.Type.WAIT_STRING:
 				scanner.close();
 				return Action.createWaitAction();
@@ -37,4 +38,11 @@ public class CLICommander implements Commander {
 		String target = scanner.next();
     }
 
+	private void processAbility(BattlingUnit unit, Battle battle, Scanner scanner) {
+		System.out.println("Here are available abilities");
+		for (Ability ability : unit.getAbilities()) {
+			System.out.println(ability);
+		}
+		String ability = scanner.next();
+    }
 }
