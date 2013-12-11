@@ -1,6 +1,6 @@
 package com.nyte.battle;
 
-import com.nyte.core.Ability;
+import com.nyte.core.ability.Ability;
 
 /**
  * Created by Brandon on 12/1/13.

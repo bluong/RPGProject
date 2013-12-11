@@ -2,6 +2,8 @@ package com.nyte.core;
 
 import java.util.List;
 
+import com.nyte.core.ability.Ability;
+
 /**
  * Created by Brandon on 11/30/13.
  */

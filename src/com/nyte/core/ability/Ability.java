@@ -1,17 +1,23 @@
-package com.nyte.core;
+package com.nyte.core.ability;
+
+import com.nyte.battle.BattlingParty;
+import com.nyte.battle.BattlingUnit;
+import com.nyte.core.Attributes;
+import com.nyte.core.Target;
+import com.nyte.core.TargetType;
 
 /**
  * Created by Brandon on 12/2/13.
  */
-public class Ability {
+public abstract class Ability {
 	
-	private Target target;
+	private TargetType target;
 	private Attributes.Stat costStat;
 	private int cost;
 	private Attributes.Stat affectingStat;
 	private int value;
 	
-	public Target getTarget() {
+	public TargetType getTarget() {
 		return target;
 	}
 	
@@ -30,4 +36,6 @@ public class Ability {
 	public int getValue() {
 		return value;
 	}
+	
+	public abstract void performAbility(BattlingUnit user, Target target);
 }

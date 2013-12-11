@@ -6,7 +6,7 @@ import com.nyte.battle.Action;
 import com.nyte.battle.Battle;
 import com.nyte.battle.BattlingUnit;
 import com.nyte.battle.Commander;
-import com.nyte.core.Ability;
+import com.nyte.core.ability.Ability;
 
 public class CLICommander implements Commander {
 
