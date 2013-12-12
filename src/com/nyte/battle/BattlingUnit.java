@@ -1,5 +1,6 @@
 package com.nyte.battle;
 
+import com.nyte.battle.commander.ActionCommander;
 import com.nyte.core.Attributes;
 import com.nyte.core.Unit;
 
@@ -10,7 +11,7 @@ public class BattlingUnit extends Unit implements Comparable<BattlingUnit>{
 
     private int priority;
     private Unit beforeBattleUnit;
-    private Commander commander;
+    private ActionCommander commander;
     private Representation representation;
     private BattlingParty battlingParty;
 
@@ -33,7 +34,7 @@ public class BattlingUnit extends Unit implements Comparable<BattlingUnit>{
         return priority - another.priority;
     }
 
-    public Commander getCommander() {
+    public ActionCommander getCommander() {
         return commander;
     }
     

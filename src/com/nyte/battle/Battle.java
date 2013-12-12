@@ -1,5 +1,6 @@
 package com.nyte.battle;
 
+import com.nyte.battle.commander.ActionCommander;
 import com.nyte.core.Party;
 
 import java.util.Collections;
@@ -12,6 +13,7 @@ public abstract class Battle {
 
     private BattlingParty[] opponents = new BattlingParty[2];
     private PriorityQueue<BattlingUnit> orderQueue;
+    private ActionCommander actionCommander;
 
     public Battle(Party p1, Party p2) {
         opponents[0] = new BattlingParty(p1);
@@ -46,5 +48,13 @@ public abstract class Battle {
     		}
     	}
     	throw new IllegalStateException();
+    }
+    
+    public ActionCommander getActionCommander() {
+    	return actionCommander;
+    }
+    
+    public BattlingUnit getCurrentUnit() {
+    	return orderQueue.peek();
     }
 }
