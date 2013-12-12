@@ -2,12 +2,21 @@ package com.nyte.battle.commander;
 
 import com.nyte.battle.Action;
 import com.nyte.battle.Battle;
-import com.nyte.battle.BattlingUnit;
 
 /**
  * Created by Brandon on 12/1/13.
  */
-public class ActionCommander {
+public abstract class ActionCommander {
+	
+	private Battle battle;
+	
+	public ActionCommander(Battle b) {
+		battle = b;
+	}
 
-    public Action getAction(BattlingUnit unit, Battle battle);
+    public abstract Action getAction();
+    
+    public Battle getBattle() {
+    	return battle;
+    }
 }
