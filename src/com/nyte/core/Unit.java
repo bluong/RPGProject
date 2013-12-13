@@ -9,6 +9,7 @@ import com.nyte.core.ability.Ability;
  */
 public class Unit extends Target{
 
+	private String name;
     private Attributes savedAttributes;
     private Attributes currentAttributes;
     private Party party;
@@ -48,5 +49,9 @@ public class Unit extends Target{
     
     public List<Ability> getAbilities() {
     	return abilities;
+    }
+    
+    public String getName() {
+    	return name;
     }
 }
