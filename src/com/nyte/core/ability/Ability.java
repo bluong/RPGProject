@@ -21,7 +21,7 @@ public abstract class Ability {
 		return name;
 	}
 	
-	public TargetType getTarget() {
+	public TargetType getTargetType() {
 		return target;
 	}
 	

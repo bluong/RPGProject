@@ -8,7 +8,7 @@ public abstract class AbilityTargetCommander extends TargetCommander{
 	private Ability ability;
 	
 	public AbilityTargetCommander(Battle b, Ability a) {
-	    super(b, a.getTarget());
+	    super(b, a.getTargetType());
     }
 
 	public Ability getAbility() {
