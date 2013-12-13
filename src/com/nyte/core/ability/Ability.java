@@ -1,6 +1,5 @@
 package com.nyte.core.ability;
 
-import com.nyte.battle.BattlingParty;
 import com.nyte.battle.BattlingUnit;
 import com.nyte.core.Attributes;
 import com.nyte.core.Target;
@@ -11,11 +10,16 @@ import com.nyte.core.TargetType;
  */
 public abstract class Ability {
 	
+	private String name;
 	private TargetType target;
 	private Attributes.Stat costStat;
 	private int cost;
 	private Attributes.Stat affectingStat;
 	private int value;
+	
+	public String getName() {
+		return name;
+	}
 	
 	public TargetType getTarget() {
 		return target;
