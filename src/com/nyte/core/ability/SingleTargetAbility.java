@@ -7,7 +7,7 @@ public abstract class SingleTargetAbility extends Ability {
 	
 	@Override
 	public void performAbility(BattlingUnit user, Target target) {
-		performSingleTargetAbility(user, (BattlingUnit) target.getTarget());
+		performSingleTargetAbility(user, (BattlingUnit) target);
 	}
 	
 	public abstract void performSingleTargetAbility(BattlingUnit user, BattlingUnit receiver);

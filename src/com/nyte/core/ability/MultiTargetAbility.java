@@ -8,7 +8,7 @@ public abstract class MultiTargetAbility extends Ability {
 	
 	@Override
 	public void performAbility(BattlingUnit user, Target target) {
-		performMultiTargetAbility(user, (BattlingParty) target.getTarget());
+		performMultiTargetAbility(user, (BattlingParty) target);
 	}
 	
 	public abstract void performMultiTargetAbility(BattlingUnit user, BattlingParty receiver);

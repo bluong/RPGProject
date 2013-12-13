@@ -32,7 +32,7 @@ public abstract class Battle {
         while (!isOver()) {
             //Get next unit from queue
             BattlingUnit currentUnit = orderQueue.poll();
-            Action action = currentUnit.getCommander().getAction(currentUnit, this);
+            Action action = actionCommander.getAction();
             currentUnit.performAction(action);
         }
     }

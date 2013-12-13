@@ -1,15 +1,16 @@
 package com.nyte.battle;
 
-import com.nyte.core.Party;
-import com.nyte.core.Unit;
-
 import java.util.Iterator;
 import java.util.List;
+
+import com.nyte.core.Party;
+import com.nyte.core.Target;
+import com.nyte.core.Unit;
 
 /**
  * Created by Brandon on 12/1/13.
  */
-public class BattlingParty implements Iterable<BattlingUnit>{
+public class BattlingParty extends Target implements Iterable<BattlingUnit>{
 
     private Party beforeBattleParty;
     private List<BattlingUnit> units;

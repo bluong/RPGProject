@@ -7,7 +7,7 @@ import com.nyte.core.ability.Ability;
 /**
  * Created by Brandon on 11/30/13.
  */
-public class Unit {
+public class Unit extends Target{
 
     private Attributes savedAttributes;
     private Attributes currentAttributes;
