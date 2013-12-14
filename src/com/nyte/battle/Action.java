@@ -12,13 +12,12 @@ public class Action {
     private BattlingUnit target;
 
     public enum Type {
-        ATTACK, DEFEND, ABILITY, WAIT, BACK;
+        ATTACK, DEFEND, ABILITY, WAIT;
         
         public static final String ATTACK_STRING = "Attack";
         public static final String DEFEND_STRING = "Defend";
         public static final String ABILITY_STRING = "Ability";
         public static final String WAIT_STRING = "Wait";
-        public static final String BACK_STRING = "Back";
     }
 
     private Action(Type type) {
@@ -33,10 +32,6 @@ public class Action {
         this.type = type;
         this.ability = ability;
         this.target = target;
-    }
-    
-    public static Action createBackAction() {
-    	return new Action(Type.BACK);
     }
 
     public static Action createDefendAction() {
