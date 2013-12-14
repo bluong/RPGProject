@@ -20,15 +20,20 @@ public class CLIActionCommander extends ActionCommander {
 		while (true){
 			switch (scanner.next()) {
 			case Action.Type.ATTACK_STRING:
-				scanner.close();
 				BattlingUnit attackTarget = (BattlingUnit) new CLIAttackTargetCommander(getBattle()).getTarget();
-				return Action.createAttackAction(attackTarget);
+				if (attackTarget != null) {
+					scanner.close();
+					return Action.createAttackAction(attackTarget);
+				}
 			case Action.Type.DEFEND_STRING:
 				scanner.close();
 				return Action.createDefendAction();
 			case Action.Type.ABILITY_STRING:
-				scanner.close();
-				return new CLIAbilityCommander(getBattle()).getAction();
+				Action abilityAction = new CLIAbilityCommander(getBattle()).getAction();
+				if (abilityAction != null) {
+					scanner.close();
+					return abilityAction;
+				}
 			case Action.Type.WAIT_STRING:
 				scanner.close();
 				return Action.createWaitAction();
