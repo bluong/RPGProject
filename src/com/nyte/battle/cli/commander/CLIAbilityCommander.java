@@ -1,5 +1,7 @@
 package com.nyte.battle.cli.commander;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.nyte.battle.Action;
@@ -18,26 +20,31 @@ public class CLIAbilityCommander extends AbilityCommander{
 	@Override
     public Action getAction() {
 		BattlingUnit currentUnit = getBattle().getCurrentUnit();
+	    Map<String, Ability> abilityNameMap = new HashMap<String,Ability> ();
 		System.out.println("Choose from the following abilities: ");
 		for (Ability a : currentUnit.getAbilities()) {
 			System.out.println(a.getName());
+			abilityNameMap.put(a.getName(), a);
 		}
 	    Scanner scanner = new Scanner(System.in);
-	    String abilityName = scanner.next();
-	    for (Ability a : currentUnit.getAbilities()) {
-			if (abilityName.equals(a.getName())) {
-				Target target = new CLIAbilityTargetCommander(getBattle(), a).getTarget();
-				if (target != null) {
-					scanner.close();
-					return Action.createAbilityAction((BattlingUnit) target, a);
-				}
-			} else if (abilityName.equals("BACK")) {
+		while (true) {
+			System.out.println("Please input an ability");
+			String abilityName = scanner.next();
+			if (abilityName.equals("Back")) {
 				scanner.close();
 				return null;
+			} else if (abilityNameMap.containsKey(abilityName)) {
+				Ability ability = abilityNameMap.get(abilityName);
+				Target target = new CLIAbilityTargetCommander(getBattle(), ability).getTarget();
+				if (target != null) {
+					scanner.close();
+					return Action.createAbilityAction((BattlingUnit) target, ability);
+				} else {
+					continue;
+				}
 			}
+			System.out.println("Invalid ability name selected.");
 		}
-	    scanner.close();
-	    return null;
     }
 
 }
