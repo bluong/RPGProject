@@ -1,8 +1,11 @@
 package com.nyte.battle.cli.commander;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.nyte.battle.Battle;
+import com.nyte.battle.BattlingParty;
 import com.nyte.battle.BattlingUnit;
 import com.nyte.battle.commander.AttackTargetCommander;
 import com.nyte.core.Target;
@@ -16,23 +19,24 @@ public class CLIAttackTargetCommander extends AttackTargetCommander {
 	@Override
 	public Target getTarget() {
 		BattlingUnit currentUnit = getBattle().getCurrentUnit();
+		Map<String, BattlingUnit> unitNameMap = new HashMap<String, BattlingUnit>();
+		BattlingParty targetParty = getBattle().getOpposingParty(currentUnit);
 		System.out.println("Choose from the following units: ");
-		for (BattlingUnit unit : getBattle().getOpposingParty(currentUnit)) {
+		for (BattlingUnit unit : targetParty) {
 			System.out.println(unit.getName());
+			unitNameMap.put(unit.getName(), unit);
 		}
 	    Scanner scanner = new Scanner(System.in);
-	    String unitName = scanner.next();
-	    for (BattlingUnit unit : getBattle().getOpposingParty(currentUnit)) {
-			if (unitName.equals(unit.getName())) {
+		while (true) {
+			String unitName = scanner.next();
+			if (unitNameMap.containsKey(unitName)) {
 				scanner.close();
-				return unit;
-			} else if (unitName.equals("BACK")) {
+				return unitNameMap.get(unitName);
+			} else if (unitName.equals("Back")) {
 				scanner.close();
 				return null;
 			}
 		}
-	    scanner.close();
-	    return null;
 	}
 
 }

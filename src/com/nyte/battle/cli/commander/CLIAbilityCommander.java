@@ -30,10 +30,7 @@ public class CLIAbilityCommander extends AbilityCommander{
 		while (true) {
 			System.out.println("Please input an ability");
 			String abilityName = scanner.next();
-			if (abilityName.equals("Back")) {
-				scanner.close();
-				return null;
-			} else if (abilityNameMap.containsKey(abilityName)) {
+			if (abilityNameMap.containsKey(abilityName)) {
 				Ability ability = abilityNameMap.get(abilityName);
 				Target target = new CLIAbilityTargetCommander(getBattle(), ability).getTarget();
 				if (target != null) {
@@ -42,6 +39,9 @@ public class CLIAbilityCommander extends AbilityCommander{
 				} else {
 					continue;
 				}
+			} else if (abilityName.equals("Back")) {
+				scanner.close();
+				return null;
 			}
 			System.out.println("Invalid ability name selected.");
 		}

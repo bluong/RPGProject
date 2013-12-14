@@ -1,5 +1,7 @@
 package com.nyte.battle.cli.commander;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.nyte.battle.Battle;
@@ -25,16 +27,17 @@ public class CLIAbilityTargetCommander extends AbilityTargetCommander {
 		case SINGLE_ALLY:
 			return handleSingleTarget(false);
 		case SINGLE_ENEMY:
-			return handleSingleTarget(false);
+			return handleSingleTarget(true);
 		default:
 			throw new IllegalStateException();
 		}
 	}
 
-	private Target handleSingleTarget(boolean b) {
+	private Target handleSingleTarget(boolean isEnemy) {
 		BattlingUnit currentUnit = getBattle().getCurrentUnit();
+		Map<String, BattlingUnit> unitNameMap = new HashMap<String, BattlingUnit>();
 		BattlingParty targetParty;
-		if (b) {
+		if (isEnemy) {
 			targetParty = getBattle().getOpposingParty(currentUnit);
 		} else {
 			targetParty = currentUnit.getBattlingParty();
@@ -42,20 +45,19 @@ public class CLIAbilityTargetCommander extends AbilityTargetCommander {
 		System.out.println("Choose from the following units: ");
 		for (BattlingUnit unit : targetParty) {
 			System.out.println(unit.getName());
+			unitNameMap.put(unit.getName(), unit);
 		}
 	    Scanner scanner = new Scanner(System.in);
-	    String unitName = scanner.next();
-	    for (BattlingUnit unit : targetParty) {
-			if (unitName.equals(unit.getName())) {
+		while (true) {
+			String unitName = scanner.next();
+			if (unitNameMap.containsKey(unitName)) {
 				scanner.close();
-				return unit;
-			} else if (unitName.equals("BACK")) {
+				return unitNameMap.get(unitName);
+			} else if (unitName.equals("Back")) {
 				scanner.close();
 				return null;
 			}
 		}
-	    scanner.close();
-	    return null;
     }
 
 }
