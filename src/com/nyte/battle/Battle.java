@@ -10,10 +10,10 @@ import java.util.PriorityQueue;
  * Created by Brandon on 11/30/13.
  */
 public abstract class Battle {
-
+	
+    protected ActionCommander actionCommander;
     private BattlingParty[] opponents = new BattlingParty[2];
     private PriorityQueue<BattlingUnit> orderQueue;
-    private ActionCommander actionCommander;
 
     public Battle(Party p1, Party p2) {
         opponents[0] = new BattlingParty(p1);
@@ -48,10 +48,6 @@ public abstract class Battle {
     		}
     	}
     	throw new IllegalStateException();
-    }
-    
-    public ActionCommander getActionCommander() {
-    	return actionCommander;
     }
     
     public BattlingUnit getCurrentUnit() {
