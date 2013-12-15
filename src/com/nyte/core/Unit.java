@@ -14,6 +14,12 @@ public class Unit extends Target{
     private Attributes currentAttributes;
     private Party party;
     private List<Ability> abilities;
+    
+    public Unit(String name, Attributes attrs, List<Ability> abils) {
+    	this.name = new String(name);
+    	this.savedAttributes = attrs;
+    	this.abilities = abils;
+    }
 
     public Unit(Unit original) {
         //TODO: Copy the stats
