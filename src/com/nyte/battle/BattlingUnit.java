@@ -12,11 +12,13 @@ public class BattlingUnit extends Unit implements Comparable<BattlingUnit>{
     private Unit beforeBattleUnit;
     private Representation representation;
     private BattlingParty battlingParty;
+    private boolean isDefending;
 
     public BattlingUnit(Unit unit) {
         super(unit);
         beforeBattleUnit = unit;
         priority = unit.getCurrentAttr(Attributes.Stat.DEXTERITY);
+        isDefending = false;
     }
     
     void setBattlingParty(BattlingParty bp) {
@@ -45,5 +47,19 @@ public class BattlingUnit extends Unit implements Comparable<BattlingUnit>{
     }
 
     public void performAction(Action action) {
+    	switch (action.getType()) {
+		case ABILITY:
+			break;
+		case ATTACK:
+			break;
+		case DEFEND:
+			isDefending = true;
+			break;
+		case WAIT:
+			break;
+		default:
+			break;
+    	
+    	}
     }
 }
