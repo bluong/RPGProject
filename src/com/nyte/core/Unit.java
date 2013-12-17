@@ -2,6 +2,7 @@ package com.nyte.core;
 
 import java.util.List;
 
+import com.nyte.core.Attributes.Stat;
 import com.nyte.core.ability.Ability;
 
 /**
@@ -59,5 +60,21 @@ public class Unit extends Target{
     
     public String getName() {
     	return name;
+    }
+    
+    public int getCurrentStat(Stat stat) {
+        return currentAttributes.getStat(stat);
+    }
+
+    public void setCurrentStat(Stat stat, int newValue) {
+        currentAttributes.setStat(stat, newValue);
+    }
+    
+    public void incrementCurrentStat(Stat stat, int modifier) {
+        currentAttributes.incrementStat(stat, modifier);
+    }
+    
+    public void decrementCurrentStat(Stat stat, int modifier) {
+    	currentAttributes.decrementStat(stat, modifier);
     }
 }
