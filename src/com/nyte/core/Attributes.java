@@ -18,4 +18,12 @@ public class Attributes {
     public void setStat(Stat stat, int newValue) {
         attributes[stat.ordinal()] = newValue;
     }
+    
+    public void incrementStat(Stat stat, int modifier) {
+        attributes[stat.ordinal()] = attributes[stat.ordinal()] + modifier;
+    }
+    
+    public void decrementStat(Stat stat, int modifier) {
+    	attributes[stat.ordinal()] = attributes[stat.ordinal()] - modifier;
+    }
 }
